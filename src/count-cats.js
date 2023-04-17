@@ -1,4 +1,4 @@
-const { NotImplementedError } = require('../extensions/index.js');
+ const { NotImplementedError } = require('../extensions/index.js');
 
 /**
  * Given matrix where you have to find cats by ears "^^"
@@ -14,10 +14,48 @@ const { NotImplementedError } = require('../extensions/index.js');
  * ]) => 3`
  *
  */
-function countCats(/* matrix */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+ matrix1 = [
+  ["^^", ".", null, 0, false, "", NaN, 2, true, "dasdas", 1],
+  [2, NaN, "", false, "^^", "^^"],
+  [false, ".", 1, 0, "^^", null, "", 2, "dasdas", "^^", NaN, true],
+  ["."],
+  [false, ".", 1, 0, "^^", true, null, "^^", "", NaN, 2, "dasdas"],
+  [false, NaN, 1, 0, ".", "^^"],
+  [null, 1, NaN],
+  [],
+]
+
+matrix2 = [
+  ["^^", ".", null, 0, false, "", NaN, "^^", 2, true, "dasdas", 1],
+  [2, null, 0, 1, ".", "dasdas", true, NaN, "", false, "^^", "^^"],
+  [false, ".", 1, 0, "^^", null, "", 2, "dasdas", "^^", NaN, true],
+  [".", false, 1, null, NaN, 2, 0, "dasdas", true, "^^", "", "^^"],
+  [false, ".", 1, 0, "^^", true, null, "^^", "", NaN, 2, "dasdas"],
+  [false, NaN, 1, 0, ".", "^^", null, true, "dasdas", "^^", 2, ""],
+  [null, 1, NaN, true, ".", "^^", "^^", 2, "", false, "dasdas", 0],
+  [null, NaN, "", false, ".", 1, 0, "^^", "dasdas", true, 2, "^^"],
+]
+
+
+
+function countCats(matrix) {
+  let counter = 0;
+  const newMatrix = matrix.flat(Infinity);
+  for (const key of newMatrix) {
+    if (key === "^^") {
+      ++counter;
+    }
+  }
+  return +counter;
 }
+  
+  
+  
+  
+
+
+
+
 
 module.exports = {
   countCats
